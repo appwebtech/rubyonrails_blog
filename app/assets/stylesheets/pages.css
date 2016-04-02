@@ -1,0 +1,41 @@
+.dog {
+  width: 120px;
+  height: 120px;
+  background-image: url("dog.jpeg");
+}
+.panel{
+  background-color: ghostwhite;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.h1{
+  font-style: Helvetica;
+  font-style: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  text-decoration-color: blue;
+}
+
+.temp{
+  font-style: Helvetica;
+  font-style: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  text-decoration-color: blue;
+
+}
+
+.Newpost{
+  font-style: Arial;
+  font-style: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration-color: blue;
+}
+

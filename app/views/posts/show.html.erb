@@ -1,0 +1,91 @@
+  <header class="intro-header header2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1><%= @post.title%></h1>
+                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                        <span class="meta"><%= link_to "edit", edit_post_path(@post) %>
+  <%= link_to "delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you wanna trash this post?"} %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+      <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>
+                    <%= @post.body%>
+                    <hr>
+                    <h4>All Comments:</h4>
+                    <hr>
+
+                    <%= render @post.comments.order("created_at DESC") %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+<h1 class="temp"> You blogged this!<%= params[:id]%></h1>
+<h3><%= link_to "Home", posts_path %></h3>
+<h2>All Comments</h2>
+<%= render @post.comments.order("created_at DESC") %>
+
+<div class="form">
+   <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+              <h2>Leave a Comment</h2>
+
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            
+                           <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+
+                             
+
+                          
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+              
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Message</label>
+                            <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+</div>
+
+
+<%= form_for [@post, @post.comments.build] do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name%><br>
+
+<%= f.label :body %><br>
+<%= f.text_area :body%><br>
+
+<%= f.submit %>
+<% end %>
